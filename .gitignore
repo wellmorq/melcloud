@@ -1,0 +1,22 @@
+# Build outputs
+/target/
+/build/
+
+# Local config and runtime state
+/.env
+/AGENTS.md
+/plans/
+/melcloud-cli/presets/
+/melcloud-cli/state/
+/melcloud-site/cache/
+/melcloud-site/state/
+
+# Temporary files
+/.tmp/
+/.chrome-shot/
+/.tmp-*
+*.log
+
+# OS noise
+.DS_Store
+Thumbs.db

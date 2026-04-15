@@ -1,0 +1,76 @@
+[
+  {
+    "BuildingID": 100001,
+    "Structure": {
+      "BuildingID": 100001,
+      "Areas": [],
+      "Floors": [],
+      "Devices": [
+        {
+          "DeviceName": "Primary ATA",
+          "BuildingID": 100001,
+          "Presets": [
+            {
+              "ID": 501,
+              "Client": 287282,
+              "DeviceLocation": 200001,
+              "Number": 1,
+              "NumberDescription": "Heating",
+              "Configuration": "<settings><st>26.5</st><pw>true</pw><om>1</om><vd>1</vd><hd>5</hd><fs>2</fs></settings>",
+              "Power": true,
+              "OperationMode": 1,
+              "SetTemperature": 26.5,
+              "FanSpeed": 2,
+              "VaneHorizontal": 5,
+              "VaneVertical": 1
+            },
+            {
+              "ID": 502,
+              "Client": 287282,
+              "DeviceLocation": 200001,
+              "Number": 2,
+              "NumberDescription": "Ventilation",
+              "Configuration": "<settings><st>26</st><pw>true</pw><om>7</om><vd>1</vd><hd>5</hd><fs>2</fs></settings>",
+              "Power": true,
+              "OperationMode": 7,
+              "SetTemperature": 26.0,
+              "FanSpeed": 2,
+              "VaneHorizontal": 5,
+              "VaneVertical": 1
+            },
+            {
+              "ID": 503,
+              "Client": 287282,
+              "DeviceLocation": 200001,
+              "Number": 3,
+              "NumberDescription": "Cooling",
+              "Configuration": "<settings><st>27</st><pw>true</pw><om>3</om><vd>1</vd><hd>5</hd><fs>1</fs></settings>",
+              "Power": true,
+              "OperationMode": 3,
+              "SetTemperature": 27.0,
+              "FanSpeed": 1,
+              "VaneHorizontal": 5,
+              "VaneVertical": 1
+            }
+          ],
+          "Device": {
+            "BuildingID": 100001,
+            "DeviceID": 200001,
+            "DeviceName": "Primary ATA",
+            "DeviceType": 0
+          }
+        },
+        {
+          "DeviceName": "Out of Scope Device",
+          "BuildingID": 100001,
+          "Device": {
+            "BuildingID": 100001,
+            "DeviceID": 299999,
+            "DeviceName": "Out of Scope Device",
+            "DeviceType": 1
+          }
+        }
+      ]
+    }
+  }
+]

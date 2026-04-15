@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-layout="vertical" data-ready="false" data-busy="false">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>MelCloud Site</title>
+    <script>
+      (() => {
+        const root = document.documentElement;
+        try {
+          const saved = window.localStorage.getItem("melcloud-site-theme");
+          const theme =
+            saved === "dark" || saved === "light"
+              ? saved
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          root.dataset.theme = theme;
+        } catch {
+          root.dataset.theme = "light";
+        }
+        root.dataset.layout = window.innerWidth >= 1180 ? "horizontal" : "vertical";
+        root.dataset.ready = "false";
+        root.dataset.busy = "false";
+      })();
+    </script>
+    <link rel="stylesheet" href="/theme.css" />
+    <link rel="stylesheet" href="/base.css" />
+    <link rel="stylesheet" href="/shell.css" />
+    <link rel="stylesheet" href="/components.css" />
+    <link rel="stylesheet" href="/sections.css" />
+    <link rel="stylesheet" href="/layout-vertical.css" />
+    <link rel="stylesheet" href="/layout-horizontal.css" />
+  </head>
+  <body>
+    <div id="app-shell" class="app-shell">
+      <div id="banner" class="banner" hidden></div>
+
+      <header class="topbar">
+        <button id="power-toggle" class="power-toggle" type="button" aria-label="Power">
+          <span class="power-toggle__label">ON</span>
+          <span class="power-toggle__knob"></span>
+        </button>
+        <div id="sync-status" class="sync-status" data-state="idle" aria-live="polite" aria-label="Synced">
+          <svg class="sync-status__icon" viewBox="0 0 36 36" aria-hidden="true">
+            <circle class="sync-status__ring" cx="18" cy="18" r="14"></circle>
+            <path class="sync-status__check" d="M10.5 18.5 15.5 23.5 26 12.5"></path>
+            <path
+              class="sync-status__sync"
+              d="M11.5 19.5a6.8 6.8 0 0 0 11.8 3.8M24.5 16.5a6.8 6.8 0 0 0-11.8-3.8M24.5 16.5h-4.2M24.5 16.5v-4.2M11.5 19.5h4.2M11.5 19.5v4.2"
+            ></path>
+            <path class="sync-status__alert-line" d="M18 10.5v11"></path>
+            <circle class="sync-status__alert-dot" cx="18" cy="26" r="1.6"></circle>
+          </svg>
+          <span id="sync-status-label" class="visually-hidden">Synced</span>
+        </div>
+        <h1 id="device-name" class="device-name visually-hidden">MelCloud</h1>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Theme">
+          <span id="theme-icon" class="sprite" aria-hidden="true"></span>
+        </button>
+      </header>
+
+      <main class="dashboard">
+        <section class="panel climate-panel">
+          <div class="climate-panel__body">
+            <div class="climate-slider">
+              <div id="temp-slider" class="temp-slider" aria-label="Temperature">
+                <div class="temp-slider__track-art"></div>
+                <div class="temp-slider__ticks"></div>
+                <div class="temp-slider__scale">
+                  <span id="temp-max-label"></span>
+                  <span id="temp-upper-label"></span>
+                  <span id="temp-lower-label"></span>
+                  <span id="temp-min-label"></span>
+                </div>
+                <div id="temp-slider-thumb" class="temp-slider__thumb"></div>
+              </div>
+            </div>
+
+            <div class="climate-side">
+              <article class="info-card info-card--room">
+                <div class="info-card__title">
+                  <span id="home-icon" class="sprite" aria-hidden="true"></span>
+                  <span data-i18n="roomTemperature"></span>
+                </div>
+                <div id="room-temperature" class="info-card__value">--</div>
+              </article>
+
+              <article class="info-card info-card--target">
+                <div class="info-card__title">
+                  <span data-i18n="targetTemperature"></span>
+                </div>
+                <div id="target-temperature" class="info-card__value info-card__value--accent">--</div>
+              </article>
+
+              <div class="temperature-actions">
+                <button id="temp-minus" class="temperature-action" type="button" aria-label="Decrease temperature">
+                  <span id="minus-icon" class="sprite" aria-hidden="true"></span>
+                </button>
+                <button id="temp-plus" class="temperature-action" type="button" aria-label="Increase temperature">
+                  <span id="plus-icon" class="sprite" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel fan-panel">
+          <h2 class="panel-title" data-i18n="fanSpeed"></h2>
+          <div id="fan-buttons" class="control-grid fan-grid"></div>
+          <button id="fan-auto" class="fan-auto-button" type="button">
+            <span id="fan-auto-icon" class="sprite" aria-hidden="true"></span>
+            <span data-i18n="auto"></span>
+          </button>
+        </section>
+
+        <section class="panel presets-panel">
+          <h2 class="panel-title" data-i18n="presets"></h2>
+          <div id="preset-buttons" class="control-grid preset-grid"></div>
+        </section>
+
+        <section class="panel weather-panel">
+          <h2 class="panel-title" data-i18n="weather"></h2>
+          <div id="weather-cards" class="control-grid weather-grid"></div>
+        </section>
+
+        <section class="panel vane-panel">
+          <h2 class="panel-title" data-i18n="vaneSettings"></h2>
+
+          <div class="vane-stack">
+            <article class="vane-row">
+              <div class="vane-row__copy">
+                <div class="vane-row__label" data-i18n="horizontalLouvers"></div>
+                <button id="vane-horizontal-auto" class="vane-auto" type="button">
+                  <span id="vane-horizontal-auto-icon" class="sprite" aria-hidden="true"></span>
+                  <span data-i18n="auto"></span>
+                </button>
+              </div>
+              <div id="vane-horizontal-buttons" class="vane-buttons vane-buttons--horizontal"></div>
+            </article>
+
+            <article class="vane-row">
+              <div class="vane-row__copy">
+                <div class="vane-row__label" data-i18n="verticalLouvers"></div>
+                <button id="vane-vertical-auto" class="vane-auto" type="button">
+                  <span id="vane-vertical-auto-icon" class="sprite" aria-hidden="true"></span>
+                  <span data-i18n="auto"></span>
+                </button>
+              </div>
+              <div id="vane-vertical-buttons" class="vane-buttons vane-buttons--vertical"></div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

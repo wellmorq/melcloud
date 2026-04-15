@@ -1,0 +1,5 @@
+bind_addr: 0.0.0.0:8787
+ui_language: ru
+commit_debounce_ms: 3000
+cli_timeout_ms: 90000
+weather_icon_timeout_ms: 1500

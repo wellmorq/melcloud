@@ -1,0 +1,7 @@
+{
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test:js": "node tests/js/run-tests.js"
+  }
+}

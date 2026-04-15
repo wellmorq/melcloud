@@ -1,0 +1,25 @@
+html[data-layout="vertical"] .app-shell {
+  width: calc(100% - 24px);
+  max-width: 430px;
+  min-width: 360px;
+  --topbar-radius: 28px 28px 0 0;
+  --dashboard-radius: 0 0 28px 28px;
+  --dashboard-columns: 1fr;
+  --dashboard-areas:
+    "climate"
+    "fan"
+    "presets"
+    "weather"
+    "vane";
+  --dashboard-gap: 14px;
+  --dashboard-padding: 10px 14px 18px;
+  --panel-padding: 14px;
+  --climate-columns: 166px 1fr;
+  --climate-gap: 12px;
+  --climate-side-width: auto;
+  --climate-side-min-width: 0;
+  --temperature-actions-columns: repeat(2, 1fr);
+  --vane-row-template: 116px 1fr;
+  --vane-buttons-width: 100%;
+  --vane-buttons-min-width: 0;
+}

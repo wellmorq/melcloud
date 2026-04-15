@@ -1,0 +1,108 @@
+@font-face {
+  font-family: "Neucha";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/neucha-cyrillic-400-normal.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: "Neucha";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/neucha-latin-400-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light;
+  --page-bg: #ffffff;
+  --shell-bg: #fbfdff;
+  --shell-outline: #bcd6ff;
+  --panel-bg: #fbfdff;
+  --panel-border: #d9e4f7;
+  --panel-shadow: none;
+  --control-bg: #f8fbff;
+  --control-bg-soft: #f8fbff;
+  --control-bg-active: #e7f0ff;
+  --control-border: rgba(204, 218, 240, 0.92);
+  --control-shadow: none;
+  --control-shadow-strong: none;
+  --control-inset: none;
+  --text: #2f3a4d;
+  --muted: #5f718f;
+  --accent: #2c7bf3;
+  --accent-soft: rgba(44, 123, 243, 0.14);
+  --line: #d8e3f5;
+  --surface: #ffffff;
+  --preset-heat: #ff9800;
+  --preset-fan: #87c478;
+  --preset-cool: #9ec4ff;
+  --preset-dry: #9ed6ff;
+  --weather-icon-outline: rgba(67, 133, 242, 0.34);
+  --weather-icon-inner: rgba(67, 133, 242, 0.14);
+  --weather-icon-bg: rgba(67, 133, 242, 0.06);
+  --weather-icon-filter: brightness(1.12) saturate(1.08);
+  --skeleton-fill: rgba(201, 216, 240, 0.56);
+  --skeleton-highlight: rgba(255, 255, 255, 0.84);
+  --font-ui: "Neucha", "Trebuchet MS", sans-serif;
+  --font-display: "Neucha", "Trebuchet MS", sans-serif;
+}
+
+html[data-theme="light"] {
+  --tile-shadow: none;
+  --preset-heat-bg: none;
+  --preset-heat-border: rgba(255, 152, 0, 0.34);
+  --preset-fan-bg: none;
+  --preset-fan-border: rgba(135, 196, 120, 0.34);
+  --preset-cool-bg: none;
+  --preset-cool-border: rgba(124, 175, 255, 0.32);
+  --preset-dry-bg: none;
+  --preset-dry-border: rgba(108, 203, 255, 0.32);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #162231;
+  --shell-bg: #1d2938;
+  --shell-outline: #4e6e9c;
+  --panel-bg: #1c2938;
+  --panel-border: #445a78;
+  --panel-shadow: none;
+  --control-bg: #233245;
+  --control-bg-soft: #233245;
+  --control-bg-active: #26405f;
+  --control-border: rgba(83, 105, 137, 0.92);
+  --control-shadow: none;
+  --control-shadow-strong: none;
+  --control-inset: none;
+  --text: #edf2fb;
+  --muted: #b8c4da;
+  --accent: #2e86ff;
+  --accent-soft: rgba(46, 134, 255, 0.18);
+  --line: #3b4f69;
+  --surface: #1d2938;
+  --preset-heat: #ffae1f;
+  --preset-fan: #8fd071;
+  --preset-cool: #76b0ff;
+  --preset-dry: #7ad2ff;
+  --tile-shadow: none;
+  --preset-heat-bg: none;
+  --preset-heat-border: rgba(255, 174, 31, 0.32);
+  --preset-fan-bg: none;
+  --preset-fan-border: rgba(143, 208, 113, 0.32);
+  --preset-cool-bg: none;
+  --preset-cool-border: rgba(118, 176, 255, 0.3);
+  --preset-dry-bg: none;
+  --preset-dry-border: rgba(122, 210, 255, 0.3);
+  --weather-icon-outline: rgba(130, 173, 255, 0.5);
+  --weather-icon-inner: rgba(130, 173, 255, 0.24);
+  --weather-icon-bg: rgba(44, 84, 143, 0.18);
+  --weather-icon-filter: brightness(1.22) saturate(1.08);
+  --skeleton-fill: rgba(77, 101, 132, 0.72);
+  --skeleton-highlight: rgba(147, 176, 224, 0.34);
+}
