@@ -34,15 +34,9 @@ pub(crate) fn routes(
     let api = get_state.or(refresh).or(apply_preset).or(patch_preset);
     let weather_icons = warp::path("weather-icons").and(warp::fs::dir(weather_icon_cache_dir));
     let assets = warp::path("assets").and(warp::fs::dir(asset_dir));
-    let index = warp::path::end()
-        .and(warp::fs::file(public_dir.join("index.html")))
-        .map(no_cache);
-    let files = warp::fs::dir(public_dir).map(no_cache);
+    let index = warp::path::end().and(warp::fs::file(public_dir.join("index.html")));
+    let files = warp::fs::dir(public_dir);
     api.or(weather_icons).or(assets).or(index).or(files)
-}
-
-fn no_cache<T: Reply>(reply: T) -> impl Reply {
-    warp::reply::with_header(reply, "Cache-Control", "no-cache")
 }
 
 async fn handle_state(service: Arc<SiteService>) -> Result<impl Reply, Infallible> {

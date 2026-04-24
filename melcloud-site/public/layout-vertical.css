@@ -1,6 +1,6 @@
 html[data-layout="vertical"] .app-shell {
-  width: min(calc(100vw - 16px), 430px);
-  max-width: 430px;
+  width: min(calc(100vw - 12px), 414px);
+  max-width: 414px;
   min-width: 0;
   padding-top: 8px;
   padding-bottom: 18px;
@@ -13,54 +13,52 @@ html[data-layout="vertical"] .app-shell {
     "presets"
     "weather"
     "vane";
-  --dashboard-gap: 12px;
-  --dashboard-padding: 10px 10px 16px;
-  --panel-padding: 12px 10px;
-  --panel-radius: 22px;
-  --panel-title-margin-bottom: 12px;
-  --climate-panel-padding: 12px 10px;
-  --climate-columns: 146px minmax(0, 1fr);
-  --climate-gap: 8px;
+  --dashboard-gap: 10px;
+  --dashboard-padding: 8px 8px 14px;
+  --panel-padding: 10px 8px;
+  --panel-radius: 20px;
+  --panel-title-size: 1.06rem;
+  --panel-title-margin-bottom: 10px;
+  --climate-panel-padding: 10px 8px;
+  --climate-columns: 124px minmax(0, 1fr);
+  --climate-gap: 7px;
   --climate-side-width: auto;
   --climate-side-min-width: 0;
-  --climate-side-gap: 10px;
-  --info-card-radius: 18px;
-  --info-card-min-height: 118px;
-  --info-card-padding: 14px 10px 10px;
-  --info-card-title-min-height: 38px;
-  --info-card-title-size: 0.95rem;
-  --info-card-value-margin-top: 5px;
-  --info-card-value-size: 2.72rem;
-  --info-card-value-accent-size: 2.84rem;
+  --climate-side-gap: 8px;
+  --info-card-radius: 16px;
+  --info-card-min-height: 102px;
+  --info-card-padding: 11px 7px 8px;
+  --info-card-title-min-height: 33px;
+  --info-card-title-size: 0.86rem;
+  --info-card-value-margin-top: 4px;
+  --info-card-value-size: 2.32rem;
+  --info-card-value-accent-size: 2.42rem;
   --temperature-actions-columns: repeat(2, minmax(0, 1fr));
-  --temperature-actions-gap: 8px;
-  --temperature-action-min-height: 64px;
-  --fan-button-min-height: 74px;
+  --temperature-actions-gap: 7px;
+  --temperature-action-radius: 14px;
+  --temperature-action-min-height: 54px;
+  --fan-button-radius: 14px;
+  --fan-button-min-height: 66px;
   --fan-button-padding: 5px 0 6px;
-  --fan-button-speed-size: 1.7rem;
-  --fan-button-icon-scale: 0.9;
-  --fan-auto-min-height: 54px;
-  --fan-auto-margin-top: 10px;
-  --fan-auto-font-size: 1.48rem;
-  --preset-button-min-height: 76px;
-  --weather-tile-min-height: 118px;
-  --weather-tile-padding: 8px 6px 9px;
+  --fan-button-speed-size: 1.55rem;
+  --fan-button-icon-scale: 0.82;
+  --fan-auto-min-height: 50px;
+  --fan-auto-margin-top: 8px;
+  --fan-auto-font-size: 1.34rem;
+  --preset-button-min-height: 68px;
+  --weather-tile-min-height: 108px;
+  --weather-tile-padding: 7px 5px 8px;
   --weather-tile-gap: 6px;
-  --control-grid-gap: 8px;
-  --vane-row-template: 94px minmax(0, 1fr);
-  --vane-row-gap: 8px;
-  --vane-row-min-height: 78px;
-  --vane-row-padding: 8px 10px;
+  --control-grid-gap: 7px;
+  --vane-row-template: 82px minmax(0, 1fr);
+  --vane-row-gap: 6px;
+  --vane-row-min-height: 72px;
+  --vane-row-padding: 7px 8px;
   --vane-stack-gap: 10px;
-  --vane-auto-gap: 8px;
-  --vane-auto-font-size: 1.22rem;
+  --vane-auto-gap: 6px;
+  --vane-auto-font-size: 1.08rem;
   --vane-buttons-width: 100%;
   --vane-buttons-min-width: 0;
-}
-
-html[data-layout="vertical"],
-html[data-layout="vertical"] body {
-  overflow-x: hidden;
 }
 
 html[data-layout="vertical"] .dashboard,
@@ -80,68 +78,68 @@ html[data-layout="vertical"] .vane-buttons {
 }
 
 html[data-layout="vertical"] .temp-slider {
-  width: 146px;
-  min-width: 146px;
-  height: 345px;
+  width: 124px;
+  min-width: 124px;
+  height: 315px;
 }
 
 html[data-layout="vertical"] .temp-slider::before {
-  left: 5px;
+  left: 4px;
   top: 5px;
-  width: 62px;
-  height: 335px;
+  width: 56px;
+  height: 305px;
 }
 
 html[data-layout="vertical"] .temp-slider__track-art {
-  left: 13px;
+  left: 12px;
   top: 9px;
-  width: 46px;
-  height: 327px;
+  width: 40px;
+  height: 297px;
 }
 
 html[data-layout="vertical"] .temp-slider__ticks {
-  left: 72px;
-  top: 23px;
-  height: 298px;
-  width: 22px;
+  left: 65px;
+  top: 21px;
+  height: 272px;
+  width: 18px;
 }
 
 html[data-layout="vertical"] .temp-slider__ticks::before {
   background:
-    linear-gradient(rgba(120, 137, 164, 0.72), rgba(120, 137, 164, 0.72)) left top/22px 2px no-repeat,
-    linear-gradient(rgba(120, 137, 164, 0.72), rgba(120, 137, 164, 0.72)) left 33.33%/22px 2px no-repeat,
-    linear-gradient(rgba(120, 137, 164, 0.72), rgba(120, 137, 164, 0.72)) left 66.66%/22px 2px no-repeat,
-    linear-gradient(rgba(120, 137, 164, 0.72), rgba(120, 137, 164, 0.72)) left bottom/22px 2px no-repeat;
+    linear-gradient(rgba(120, 137, 164, 0.72), rgba(120, 137, 164, 0.72)) left top/18px 2px no-repeat,
+    linear-gradient(rgba(120, 137, 164, 0.72), rgba(120, 137, 164, 0.72)) left 33.33%/18px 2px no-repeat,
+    linear-gradient(rgba(120, 137, 164, 0.72), rgba(120, 137, 164, 0.72)) left 66.66%/18px 2px no-repeat,
+    linear-gradient(rgba(120, 137, 164, 0.72), rgba(120, 137, 164, 0.72)) left bottom/18px 2px no-repeat;
 }
 
 html[data-layout="vertical"] .temp-slider__scale {
-  left: 104px;
-  top: 23px;
-  height: 298px;
-  width: 38px;
-  font-size: 1.08rem;
+  left: 91px;
+  top: 21px;
+  height: 272px;
+  width: 31px;
+  font-size: 1rem;
 }
 
 html[data-layout="vertical"] .temp-slider__thumb {
-  left: 36px;
-  width: 58px;
-  height: 32px;
+  left: 32px;
+  width: 52px;
+  height: 30px;
 }
 
 html[data-layout="vertical"] .temp-slider__thumb::after {
-  left: 14px;
-  right: 14px;
-  top: 13px;
+  left: 13px;
+  right: 13px;
+  top: 12px;
 }
 
 html[data-layout="vertical"] .info-card--room .info-card__title {
-  grid-template-columns: 24px 1fr;
-  max-width: 132px;
+  grid-template-columns: 22px 1fr;
+  max-width: 118px;
 }
 
 html[data-layout="vertical"] .info-card--target .info-card__title {
-  max-width: 132px;
-  padding-left: 28px;
+  max-width: 118px;
+  padding-left: 25px;
 }
 
 html[data-layout="vertical"] .fan-button,
@@ -154,11 +152,20 @@ html[data-layout="vertical"] .vane-buttons {
   gap: 4px;
 }
 
+html[data-layout="vertical"] .weather-tile__day {
+  font-size: 0.82rem;
+}
+
+html[data-layout="vertical"] .weather-tile__period,
+html[data-layout="vertical"] .weather-tile__temp {
+  font-size: 0.94rem;
+}
+
 html[data-layout="vertical"] .vane-button {
-  min-height: 48px;
+  min-height: 44px;
 }
 
 html[data-layout="vertical"] .vane-button__bar {
-  width: 9px;
-  height: 36px;
+  width: 8px;
+  height: 32px;
 }
