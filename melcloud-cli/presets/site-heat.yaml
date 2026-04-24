@@ -1,0 +1,10 @@
+---
+name: site-heat
+description: Saved from melcloud-site live device state
+state:
+  fan_speed: "3"
+  mode: heat
+  power: true
+  target_temperature: 27.0
+  vane_horizontal: "5"
+  vane_vertical: "1"

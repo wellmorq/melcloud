@@ -1,0 +1,9 @@
+name: example
+description: "Example preset with readable aliases"
+state:
+  power: true
+  mode: auto
+  target_temperature: 24.5
+  fan_speed: auto
+  vane_horizontal: split
+  vane_vertical: swing

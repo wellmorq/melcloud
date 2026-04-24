@@ -1,0 +1,10 @@
+---
+name: site-cool
+description: Saved from melcloud-site live device state
+state:
+  fan_speed: "3"
+  mode: cool
+  power: true
+  target_temperature: 20.5
+  vane_horizontal: "5"
+  vane_vertical: "1"

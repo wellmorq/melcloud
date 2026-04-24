@@ -6,10 +6,12 @@
 /.env
 /AGENTS.md
 /plans/
-/melcloud-cli/presets/
 /melcloud-cli/state/
 /melcloud-site/cache/
 /melcloud-site/state/
+/melcloud-cli/presets/*.bak
+/melcloud-cli/presets/*.tmp
+/melcloud-cli/presets/*.tmp-*
 
 # Temporary files
 /.tmp/

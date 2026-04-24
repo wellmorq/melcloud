@@ -1,0 +1,6 @@
+---
+name: site-dry
+description: Site preset for dry
+state:
+  mode: dry
+  power: true
