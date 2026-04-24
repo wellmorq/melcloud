@@ -1,7 +1,9 @@
 html[data-layout="vertical"] .app-shell {
-  width: calc(100% - 24px);
+  width: min(calc(100vw - 16px), 430px);
   max-width: 430px;
-  min-width: 360px;
+  min-width: 0;
+  padding-top: 8px;
+  padding-bottom: 18px;
   --topbar-radius: 28px 28px 0 0;
   --dashboard-radius: 0 0 28px 28px;
   --dashboard-columns: 1fr;
@@ -11,15 +13,152 @@ html[data-layout="vertical"] .app-shell {
     "presets"
     "weather"
     "vane";
-  --dashboard-gap: 14px;
-  --dashboard-padding: 10px 14px 18px;
-  --panel-padding: 14px;
-  --climate-columns: 166px 1fr;
-  --climate-gap: 12px;
+  --dashboard-gap: 12px;
+  --dashboard-padding: 10px 10px 16px;
+  --panel-padding: 12px 10px;
+  --panel-radius: 22px;
+  --panel-title-margin-bottom: 12px;
+  --climate-panel-padding: 12px 10px;
+  --climate-columns: 146px minmax(0, 1fr);
+  --climate-gap: 8px;
   --climate-side-width: auto;
   --climate-side-min-width: 0;
-  --temperature-actions-columns: repeat(2, 1fr);
-  --vane-row-template: 116px 1fr;
+  --climate-side-gap: 10px;
+  --info-card-radius: 18px;
+  --info-card-min-height: 118px;
+  --info-card-padding: 14px 10px 10px;
+  --info-card-title-min-height: 38px;
+  --info-card-title-size: 0.95rem;
+  --info-card-value-margin-top: 5px;
+  --info-card-value-size: 2.72rem;
+  --info-card-value-accent-size: 2.84rem;
+  --temperature-actions-columns: repeat(2, minmax(0, 1fr));
+  --temperature-actions-gap: 8px;
+  --temperature-action-min-height: 64px;
+  --fan-button-min-height: 74px;
+  --fan-button-padding: 5px 0 6px;
+  --fan-button-speed-size: 1.7rem;
+  --fan-button-icon-scale: 0.9;
+  --fan-auto-min-height: 54px;
+  --fan-auto-margin-top: 10px;
+  --fan-auto-font-size: 1.48rem;
+  --preset-button-min-height: 76px;
+  --weather-tile-min-height: 118px;
+  --weather-tile-padding: 8px 6px 9px;
+  --weather-tile-gap: 6px;
+  --control-grid-gap: 8px;
+  --vane-row-template: 94px minmax(0, 1fr);
+  --vane-row-gap: 8px;
+  --vane-row-min-height: 78px;
+  --vane-row-padding: 8px 10px;
+  --vane-stack-gap: 10px;
+  --vane-auto-gap: 8px;
+  --vane-auto-font-size: 1.22rem;
   --vane-buttons-width: 100%;
   --vane-buttons-min-width: 0;
+}
+
+html[data-layout="vertical"],
+html[data-layout="vertical"] body {
+  overflow-x: hidden;
+}
+
+html[data-layout="vertical"] .dashboard,
+html[data-layout="vertical"] .panel,
+html[data-layout="vertical"] .climate-panel__body,
+html[data-layout="vertical"] .climate-side,
+html[data-layout="vertical"] .control-grid,
+html[data-layout="vertical"] .info-card,
+html[data-layout="vertical"] .temperature-action,
+html[data-layout="vertical"] .fan-button,
+html[data-layout="vertical"] .fan-auto-button,
+html[data-layout="vertical"] .preset-button,
+html[data-layout="vertical"] .weather-tile,
+html[data-layout="vertical"] .vane-row,
+html[data-layout="vertical"] .vane-buttons {
+  min-width: 0;
+}
+
+html[data-layout="vertical"] .temp-slider {
+  width: 146px;
+  min-width: 146px;
+  height: 345px;
+}
+
+html[data-layout="vertical"] .temp-slider::before {
+  left: 5px;
+  top: 5px;
+  width: 62px;
+  height: 335px;
+}
+
+html[data-layout="vertical"] .temp-slider__track-art {
+  left: 13px;
+  top: 9px;
+  width: 46px;
+  height: 327px;
+}
+
+html[data-layout="vertical"] .temp-slider__ticks {
+  left: 72px;
+  top: 23px;
+  height: 298px;
+  width: 22px;
+}
+
+html[data-layout="vertical"] .temp-slider__ticks::before {
+  background:
+    linear-gradient(rgba(120, 137, 164, 0.72), rgba(120, 137, 164, 0.72)) left top/22px 2px no-repeat,
+    linear-gradient(rgba(120, 137, 164, 0.72), rgba(120, 137, 164, 0.72)) left 33.33%/22px 2px no-repeat,
+    linear-gradient(rgba(120, 137, 164, 0.72), rgba(120, 137, 164, 0.72)) left 66.66%/22px 2px no-repeat,
+    linear-gradient(rgba(120, 137, 164, 0.72), rgba(120, 137, 164, 0.72)) left bottom/22px 2px no-repeat;
+}
+
+html[data-layout="vertical"] .temp-slider__scale {
+  left: 104px;
+  top: 23px;
+  height: 298px;
+  width: 38px;
+  font-size: 1.08rem;
+}
+
+html[data-layout="vertical"] .temp-slider__thumb {
+  left: 36px;
+  width: 58px;
+  height: 32px;
+}
+
+html[data-layout="vertical"] .temp-slider__thumb::after {
+  left: 14px;
+  right: 14px;
+  top: 13px;
+}
+
+html[data-layout="vertical"] .info-card--room .info-card__title {
+  grid-template-columns: 24px 1fr;
+  max-width: 132px;
+}
+
+html[data-layout="vertical"] .info-card--target .info-card__title {
+  max-width: 132px;
+  padding-left: 28px;
+}
+
+html[data-layout="vertical"] .fan-button,
+html[data-layout="vertical"] .preset-button,
+html[data-layout="vertical"] .weather-tile {
+  width: 100%;
+}
+
+html[data-layout="vertical"] .vane-buttons {
+  gap: 4px;
+}
+
+html[data-layout="vertical"] .vane-button {
+  min-height: 48px;
+}
+
+html[data-layout="vertical"] .vane-button__bar {
+  width: 9px;
+  height: 36px;
 }
