@@ -106,6 +106,7 @@ copy_required_file "$root/target/release/melcloud-cli" "$output_path/bin/melclou
 copy_required_file "$root/target/release/melcloud-site" "$output_path/bin/melcloud-site"
 copy_required_dir "$root/melcloud-site/public" "$output_path/melcloud-site/public"
 asset_version="$(date -u +%Y%m%d%H%M%S)"
+sed -i "s/?v=dev/?v=$asset_version/g" "$output_path/melcloud-site/public/index.html"
 write_text_file "$output_path/melcloud-site/public/js/build-version.js" "export const assetVersion = \"$asset_version\";"
 copy_required_dir "$root/melcloud-site/site-assets" "$output_path/melcloud-site/site-assets"
 copy_required_file "$root/melcloud-site/melcloud-site.yaml" "$output_path/melcloud-site/melcloud-site.yaml"

@@ -99,6 +99,9 @@ try {
         -Source (Join-Path $root "melcloud-site\public") `
         -Destination (Join-Path $outputPath "melcloud-site\public")
     $assetVersion = Get-Date -Format "yyyyMMddHHmmss"
+    $indexPath = Join-Path $outputPath "melcloud-site\public\index.html"
+    $indexHtml = Get-Content -LiteralPath $indexPath -Raw
+    Set-Content -LiteralPath $indexPath -Value ($indexHtml -replace "\?v=dev", "?v=$assetVersion") -Encoding UTF8
     Write-TextFile -Path (Join-Path $outputPath "melcloud-site\public\js\build-version.js") -Content @"
 export const assetVersion = "$assetVersion";
 "@
