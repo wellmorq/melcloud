@@ -73,9 +73,10 @@ fn seed_preset(preset_id: FixedPresetId) -> LocalPresetFile {
 fn preset_from_status(preset_id: FixedPresetId, status: &StatusSummary) -> LocalPresetFile {
     let mut state = BTreeMap::new();
     state.insert("power".to_string(), Value::Bool(status.power));
-    if let Some(mode) = status.operation_mode.as_ref() {
-        state.insert("mode".to_string(), Value::String(mode.clone()));
-    }
+    state.insert(
+        "mode".to_string(),
+        Value::String(preset_id.mode().to_string()),
+    );
     if let Some(value) = status.target_temperature {
         if let Ok(raw) = serde_yaml::to_value(value) {
             state.insert("target_temperature".to_string(), raw);
@@ -134,7 +135,7 @@ pub(crate) fn load_preset_config(
     };
     Ok(ConfigPatchRequest {
         power: preset.state.get("power").and_then(value_as_bool),
-        mode: preset.state.get("mode").and_then(value_as_string),
+        mode: Some(preset_id.mode().to_string()),
         target_temperature: preset
             .state
             .get("target_temperature")

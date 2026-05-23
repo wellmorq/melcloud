@@ -404,6 +404,40 @@ fn load_preset_config_reads_saved_fields() {
 }
 
 #[test]
+fn fixed_preset_write_keeps_canonical_mode() {
+    let dir = temp_dir("canonical-write");
+    ensure_fixed_presets(&dir).unwrap();
+    write_preset_from_status(
+        &dir,
+        FixedPresetId::SiteCool,
+        &sample_status("fan_only").status,
+    )
+    .unwrap();
+
+    let config = load_preset_config(&dir, FixedPresetId::SiteCool).unwrap();
+    let raw = fs::read_to_string(preset_path(&dir, FixedPresetId::SiteCool)).unwrap();
+
+    assert_eq!(config.mode.as_deref(), Some("cool"));
+    assert!(raw.contains("mode: cool"));
+}
+
+#[test]
+fn fixed_preset_load_repairs_wrong_saved_mode() {
+    let dir = temp_dir("canonical-load");
+    ensure_fixed_presets(&dir).unwrap();
+    fs::write(
+        preset_path(&dir, FixedPresetId::SiteCool),
+        "---\nname: site-cool\nstate:\n  power: true\n  mode: fan_only\n  target_temperature: 26.0\n",
+    )
+    .unwrap();
+
+    let config = load_preset_config(&dir, FixedPresetId::SiteCool).unwrap();
+
+    assert_eq!(config.mode.as_deref(), Some("cool"));
+    assert_eq!(config.target_temperature, Some(26.0));
+}
+
+#[test]
 fn corrupt_preset_loads_backup_copy() {
     let dir = temp_dir("preset-backup");
     ensure_fixed_presets(&dir).unwrap();
